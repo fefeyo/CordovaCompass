@@ -14,7 +14,15 @@ var app = {
 
     onDeviceReady: function() {
         console.log("onDeviceReady");
-        watchCompass();
+        // watchCompass();
+        var options = {
+            frequency: 1000
+        };
+        watchID = navigator.compass.watchHeading(
+            app.onSuccess,
+            app.onError,
+            options
+            );
     },
 
     receivedEvent: function(id) {
@@ -28,9 +36,11 @@ var app = {
         console.log('Received Event: ' + id);
     },
     onSuccess: function(heading){
+        console.log("onSuccess");
         document.getElementById("test").innerHTML = "現在の方位:" + heading.magnetHeading;
     },
     onError: function(compassError){
+        console.log("onError");
         document.getElementById("test").innerHTML = "コンパスのエラーが発生しました" + compassError.code;
     }
 };
