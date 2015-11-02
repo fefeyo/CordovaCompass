@@ -37,7 +37,7 @@ var app = {
     },
     onSuccess: function(heading){
         console.log("onSuccess");
-        document.getElementById("test").innerHTML = "取得成功：" + heading.magnetHeading;
+        document.getElementById("test").innerHTML = "取得成功：" + heading.magneticHeading;
     },
     onError: function(compassError){
         console.log("onError");
