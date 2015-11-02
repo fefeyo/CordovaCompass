@@ -37,11 +37,11 @@ var app = {
     },
     onSuccess: function(heading){
         console.log("onSuccess");
-        document.getElementById("test").innerHTML = "OK:" + heading.magnetHeading;
+        document.getElementById("test").innerHTML = "取得成功：" + heading.magnetHeading;
     },
     onError: function(compassError){
         console.log("onError");
-        document.getElementById("test").innerHTML = "E" + compassError.code;
+        document.getElementById("test").innerHTML = "だめです：" + compassError.code;
     }
 };
 
