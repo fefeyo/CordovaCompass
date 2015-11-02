@@ -37,11 +37,11 @@ var app = {
     },
     onSuccess: function(heading){
         console.log("onSuccess");
-        document.getElementById("test").innerHTML = "現在の方位:" + heading.magnetHeading;
+        document.getElementById("test").innerHTML = "OK:" + heading.magnetHeading;
     },
     onError: function(compassError){
         console.log("onError");
-        document.getElementById("test").innerHTML = "コンパスのエラーが発生しました" + compassError.code;
+        document.getElementById("test").innerHTML = "E" + compassError.code;
     }
 };
 
