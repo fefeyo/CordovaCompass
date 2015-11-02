@@ -38,25 +38,20 @@ var app = {
     onSuccess: function(heading){
         var d = heading.magneticHeading;
         var box = document.getElementById("test");
-        switch (d){
-            case d <= 45 && d >= 315
+        if(d <= 45 && d >= 315){
             box.innerHTML = "北";
-            break;
-            case d >= 45 && d <= 135
+        }else if(d >= 45 && d <= 135){
             box.innerHTML = "東";
-            break;
-            case d >= 135 && d <= 225
+        }else if(d >= 135 && d <= 225){
             box.innerHTML = "南";
-            break;
-            case d >= 225 && d <= 315
+        }else if(d >= 225 && d <= 315){
             box.innerHTML = "西";
-            break;
-
         }
-    },
-    onError: function(compassError){
-        s        document.getElementById("test").innerHTML = "だめです：" + compassError.code;
     }
+},
+onError: function(compassError){
+    s        document.getElementById("test").innerHTML = "だめです：" + compassError.code;
+}
 };
 
 function watchCompass(){
