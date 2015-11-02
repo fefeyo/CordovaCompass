@@ -36,12 +36,26 @@ var app = {
         console.log('Received Event: ' + id);
     },
     onSuccess: function(heading){
-        console.log("onSuccess");
-        document.getElementById("test").innerHTML = "取得成功：" + heading.magneticHeading;
+        var d = heading.magneticHeading;
+        var box = document.getElementById("test");
+        switch (d){
+            case d <= 45 && d >= 315
+            box.innerHTML = "北";
+            break;
+            case d >= 45 && d <= 135
+            box.innerHTML = "東";
+            break;
+            case d >= 135 && d <= 225
+            box.innerHTML = "南";
+            break;
+            case d >= 225 && d <= 315
+            box.innerHTML = "西";
+            break;
+
+        }
     },
     onError: function(compassError){
-        console.log("onError");
-        document.getElementById("test").innerHTML = "だめです：" + compassError.code;
+        s        document.getElementById("test").innerHTML = "だめです：" + compassError.code;
     }
 };
 
