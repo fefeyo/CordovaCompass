@@ -8,10 +8,12 @@ var app = {
     },
 
     bindEvents: function() {
+        console.log("bindEvents");
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
 
     onDeviceReady: function() {
+        console.log("onDeviceReady");
         watchCompass();
         app.receivedEvent('deviceready');
     },
@@ -39,6 +41,7 @@ function watchCompass(){
     //     app.onSuccess,
     //     app.onError
     //     );
+
 var options = {
     frequency: 1000
 };
