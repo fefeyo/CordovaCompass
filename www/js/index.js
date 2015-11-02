@@ -1,4 +1,7 @@
 
+// コンパスを監視している関数が入る
+var watchID = null;
+
 var app = {
     initialize: function() {
         this.bindEvents();
@@ -9,7 +12,7 @@ var app = {
     },
 
     onDeviceReady: function() {
-        buildCompass();
+        watchCompass();
         app.receivedEvent('deviceready');
     },
 
@@ -31,7 +34,7 @@ var app = {
     }
 };
 
-function buildCompass(){
+function watchCompass(){
     // navigator.compass.getCurrentHeading(
     //     app.onSuccess,
     //     app.onError
@@ -39,11 +42,19 @@ function buildCompass(){
 var options = {
     frequency: 1000
 };
-navigator.compass.watchHeading(
+watchID = navigator.compass.watchHeading(
     app.onSuccess,
     app.onError,
     options
     );
+}
+
+function stopCompass(){
+    if(watchID){
+        navigator.compass.clearWatch(watchID);
+        watchID = null;
+        document.getElementById("test").innerHTML = "計測中止";
+    }
 }
 
 
