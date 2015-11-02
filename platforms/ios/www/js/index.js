@@ -15,7 +15,6 @@ var app = {
     onDeviceReady: function() {
         console.log("onDeviceReady");
         watchCompass();
-        app.receivedEvent('deviceready');
     },
 
     receivedEvent: function(id) {
